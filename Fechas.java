@@ -10,6 +10,11 @@ public class Fechas {
         //Ya veremos que pongo en el constructor
     }
 
+    //getters
+    public int getDia(){ return this.dia; }
+    public int getMes(){ return this.mes; }
+    public int getAño(){ return this.año; }
+    public int[] getFecha(){ return this.random; }
 
     //metodo para dar un numero random
     private int randomize(int min, int max) {return (int) (Math.random() * ( max - min + 1 ) + min );}
@@ -50,7 +55,10 @@ public class Fechas {
     }
 
     //metodo para calcular dia de la semana
+    public int calculate(int[] fechas){
 
+        return 1;
+    }
     //booleano para comprobar si es correcto
 
 
