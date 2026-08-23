@@ -12,7 +12,7 @@ public class Fechas {
 
 
     //metodo para dar un numero random
-    private int randomize(int min, int max) {return (int)(Math.random() * ( max - min + 1 ) + min);}
+    private int randomize(int min, int max) {return (int) (Math.random() * ( max - min + 1 ) + min );}
     
     //metodo para dar una fecha random
     public int[] fecha(){
@@ -38,11 +38,16 @@ public class Fechas {
         this.dia = randomize(1, daymax);
 
         this.random = new int[]{this.dia, this.mes, this.año};
-        
+
         return this.random;
 
     }
+
     //metodo para imprimir
+    public String makeDate(int[] random){ 
+         String randomDate = String.valueOf(random[0]) + "/" + String.valueOf(random[1]) + "/" + String.valueOf(random[2]);
+        return randomDate;
+    }
 
     //metodo para calcular dia de la semana
 
