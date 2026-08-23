@@ -5,10 +5,13 @@ public class Fechas {
     private int mes;
     private int año;
     private int[] random;
+    private int resultado;
+    private String[] diasSemana = {"domingo", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado"}; //Sin mayusculas o tildes
 
     public Fechas(){
         //initialize all random values with fecha() function
         fecha();
+        this.resultado = calculate();
     }
 
     //getters
@@ -16,6 +19,7 @@ public class Fechas {
     public int getMes(){ return this.mes; }
     public int getAño(){ return this.año; }
     public int[] getFecha(){ return this.random; }
+    public String getDiaSemana() { return this.diasSemana[this.resultado]; }
 
     //metodo para dar un numero random
     private int randomize(int min, int max) {return (int) (Math.random() * ( max - min + 1 ) + min );}
@@ -65,6 +69,8 @@ public class Fechas {
         return (year + year/4 - year/100 + year/400 + codMes[this.mes -1] + this.dia) % 7;
     }
     //booleano para comprobar si es correcto
+
+    public boolean isCorrect(String intento) { return (intento.toLowerCase() == this.diasSemana[this.resultado]); }
 
 
 }
