@@ -1,3 +1,4 @@
+package src;
 public class Fechas {
     
     // Atributos privados de la clase
