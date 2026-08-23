@@ -7,7 +7,8 @@ public class Fechas {
     private int[] random;
 
     public Fechas(){
-        //Ya veremos que pongo en el constructor
+        //initialize all random values with fecha() function
+        fecha();
     }
 
     //getters
@@ -20,11 +21,11 @@ public class Fechas {
     private int randomize(int min, int max) {return (int) (Math.random() * ( max - min + 1 ) + min );}
     
     //metodo para dar una fecha random
-    public int[] fecha(){
+    private void fecha(){
         int daymax = 0;
         
         this.mes = randomize(1,12);
-        this.año = randomize(1900,2100);
+        this.año = randomize(0,2200);
 
         switch(this.mes){
             case 1,3,5,7,8,10,12:
@@ -43,14 +44,11 @@ public class Fechas {
         this.dia = randomize(1, daymax);
 
         this.random = new int[]{this.dia, this.mes, this.año};
-
-        return this.random;
-
     }
 
     //metodo para imprimir
-    public String makeDate(int[] random){ 
-         String randomDate = String.valueOf(random[0]) + "/" + String.valueOf(random[1]) + "/" + String.valueOf(random[2]);
+    public String makeDate(){ 
+         String randomDate = String.valueOf(this.random[0]) + "/" + String.valueOf(this.random[1]) + "/" + String.valueOf(this.random[2]);
         return randomDate;
     }
 
