@@ -54,10 +54,17 @@ public class Fechas {
         return randomDate;
     }
 
-    //metodo para calcular dia de la semana
-    public int calculate(int[] fechas){
+    //algoritmo de sakamoto
+    public int calculate(){
+        //guardamos los codigos correspondientes a cada mes
+        int [] codMes = {0,3,2,5,0,3,5,1,4,6,2,4};
 
-        return 1;
+        //lo llamamos year para no confundir porque este año puede cambiar
+        int year = this.año;
+        if(this.mes < 3) year -= 1;
+
+        //algoritmo de sakamoto
+        return (year + year/4 - year/100 + year/400 + codMes[this.mes -1] + this.dia) % 7;
     }
     //booleano para comprobar si es correcto
 
