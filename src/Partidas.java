@@ -1,5 +1,7 @@
 package src;
 import java.util.Scanner;
+
+//Clase  para partidas o logicas en bloques sobre los distintos juegos, sin ninguna conexion
 public class Partidas {
     private Fechas fecha;
 
