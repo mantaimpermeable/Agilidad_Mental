@@ -1,10 +1,10 @@
 package src;
-import java.io.BufferedWriter;
+import java.io.PrintWriter;
 
 public class Ficheros {
-    private BufferedWriter writer;
+    private PrintWriter writer;
 
-    public Ficheros(BufferedWriter escritor){
+    public Ficheros(PrintWriter escritor){
         this.writer = escritor;
     }
 

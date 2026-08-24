@@ -7,7 +7,8 @@ public class Fechas {
     private int año;
     private int[] random;
     private int resultado;
-    private String[] diasSemana = {"domingo", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado"}; //Sin mayusculas o tildes
+    private final String[] DIAS_SEMANA = {"domingo", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado"}; //Sin mayusculas o tildes
+    private final String SEPARATOR = "--------------------"; //20
 
     public Fechas(){
         //initialize all random values with fecha() function
@@ -20,7 +21,7 @@ public class Fechas {
     public int getMes(){ return this.mes; }
     public int getAño(){ return this.año; }
     public int[] getFecha(){ return this.random; }
-    public String getDiaSemana() { return this.diasSemana[this.resultado]; }
+    public String getDiaSemana() { return this.DIAS_SEMANA[this.resultado]; }
 
     //metodo para dar un numero random
     private int randomize(int min, int max) {return (int) (Math.random() * ( max - min + 1 ) + min );}
@@ -58,7 +59,7 @@ public class Fechas {
     }
 
     //algoritmo de sakamoto
-    public int calculate(){
+    private int calculate(){
         //guardamos los codigos correspondientes a cada mes
         int [] codMes = {0,3,2,5,0,3,5,1,4,6,2,4};
 
@@ -71,7 +72,18 @@ public class Fechas {
     }
     //booleano para comprobar si es correcto
 
-    public boolean isCorrect(String intento) { return (intento.toLowerCase() == this.diasSemana[this.resultado]); }
+    public boolean isCorrect(String intento) { return (intento.toLowerCase() == this.DIAS_SEMANA[this.resultado]); }
+
+    public String toRawString(boolean intento, double tiempo){
+        StringBuilder raw = new StringBuilder();
+        raw.append(String.format("%s\n", makeDate())); //fecha random
+        raw.append(String.format("%s\n", this.resultado)); //dia correcto
+        raw.append(String.format("%b\n", intento)); // resultado del intento del usuario
+        raw.append(String.format("%f\n", tiempo)); //tiempo tardado en resolver
+        raw.append(String.format("%s\n", SEPARATOR)); //Separador para separar cada juego
+
+        return raw.toString();
+    }
 
 
 }
