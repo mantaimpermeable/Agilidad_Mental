@@ -8,7 +8,7 @@ import java.io.FileReader;
 
 public class Ficheros {
     private PrintWriter writer;
-    private BufferedReader reader;
+    
 
     //ponemos estos objetos pero antes de meterlos en el constructor hay que inicializarlos con un FileReader y con un BufferdReader + filewriter
     public Ficheros(PrintWriter escritor){ //BufferedReader lector
@@ -28,9 +28,9 @@ public class Ficheros {
         double exitos = 0.0;
         ;
         //para que no se rompa si el usuario es subnormal
-        int start = Math.max(0, fichero.length - numIntentos - 1);
+        int startIndex = Math.max(0, fichero.length - numIntentos - 1);
         //bucle for para  acumular las estadisticas
-        for(int i = fichero.length - 1; i > ((fichero.length - 1) - numIntentos); i--){
+        for(int i = fichero.length - 1; i > startIndex; i--){
             BufferedReader reader = new BufferedReader(new FileReader(fichero[i]));
             //saltamos primeras dos lineas de la fecha y el dia de la semana
             reader.readLine();
