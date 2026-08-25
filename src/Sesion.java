@@ -1,6 +1,6 @@
 package src;
 import java.util.Scanner;
- import java.nio.file.Path;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 
 //clase con la logica de una sesion de usuario

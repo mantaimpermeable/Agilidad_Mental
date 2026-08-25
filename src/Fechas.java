@@ -8,7 +8,7 @@ public class Fechas {
     private int[] random;
     private int resultado;
     private final String[] DIAS_SEMANA = {"domingo", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado"}; //Sin mayusculas o tildes
-    private final String SEPARATOR = "--------------------"; //20
+    public static final String SEPARATOR = "--------------------"; //20
 
     public Fechas(){
         //initialize all random values with fecha() function
