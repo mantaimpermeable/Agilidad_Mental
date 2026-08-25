@@ -7,26 +7,29 @@ import java.nio.file.Path;
 import java.io.FileReader;
 
 public class Ficheros {
-    private PrintWriter writer;
+    // private PrintWriter writer;
     
 
     //ponemos estos objetos pero antes de meterlos en el constructor hay que inicializarlos con un FileReader y con un BufferdReader + filewriter
-    public Ficheros(PrintWriter escritor){ //BufferedReader lector
-        this.writer = escritor;
+    public Ficheros(){ //BufferedReader lector
+        // this.writer = escritor;
         // this.reader = lector;
     }
 
-    public void escribir(String informacion) throws IOException{ writer.print(informacion); }
+    public void escribir(String informacion, String ruta) throws IOException{
+        PrintWriter writer = new PrintWriter(ruta);
+        writer.print(informacion); 
+        }
 
     // String file = Files.readString(Path.of(ruta));
     //metodo para leer el archivo de intentos
-    private String[] leerIntentos(String ruta) throws IOException{ return Files.readString(Path.of(ruta)).split(Fechas.SEPARATOR); }
+    public String[] leerIntentos(String ruta) throws IOException{ return Files.readString(Path.of(ruta)).split(Fechas.SEPARATOR); }
 
     public String[] ultimasEstadisticas(String ruta, int numIntentos) throws IOException{
         String[] fichero = leerIntentos(ruta);
         double segundos = 0.0;
         double exitos = 0.0;
-        ;
+        
         //para que no se rompa si el usuario es subnormal
         int startIndex = Math.max(0, fichero.length - numIntentos - 1);
         //bucle for para  acumular las estadisticas
