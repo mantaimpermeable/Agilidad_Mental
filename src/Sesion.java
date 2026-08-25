@@ -13,6 +13,9 @@ public class Sesion {
     //ruta del directorio donde se crearan los ficheros de informacion
     private String estadisticasRuta = rutaActual + "/storage/estadisticas.txt";
     private String intentosRuta = rutaActual + "/storage/intentos.txt";
+
+    private final String WELCOME_MSG = "Bienvenido al juego de las fechas, ahora tendras que calcular el dia de la semana de una fecha. Empezar(Y) Salir(N)";
+    private final String CHOICE_MSG = "Ha terminado el juegos. Jugar de nuevo(Y)  Salir al menu(N)";
   
 
     public Sesion(Scanner scanner){
@@ -25,7 +28,7 @@ public class Sesion {
     // }
 
     public void juegoFechas(){
-
+        System.out.println();
     }
 
 }

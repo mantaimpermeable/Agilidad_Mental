@@ -6,7 +6,7 @@ public class Utilidades {
 
     private static final String ERROR_MSG = "Por favor, introduce un número válido.";
     private static final String NUMBER_MSG = "El número debe estar entre [%d] y [%d].";
-    
+
     public static String leerString(Scanner teclado, String mensaje){
         System.out.println(mensaje);
         return teclado.nextLine();
@@ -31,5 +31,30 @@ public class Utilidades {
         } while (!correct);
 
         return output;
+    }
+
+    public static char leerYNE(Scanner teclado, String mensaje){
+        boolean check = false;
+        String respuesta = "";
+        while (!check) {
+            respuesta = leerString(teclado, mensaje);
+            switch (respuesta.toLowerCase()) {
+                case "y":
+                    respuesta = "Y";
+                    check = true;
+                    break;
+                case "n":
+                    respuesta = "N";
+                    check = true;
+                    break;
+                case "e":
+                    respuesta = "E";
+                    check = true;
+                    break;
+                default:
+                    check = false;
+            }
+        }
+        return respuesta.charAt(0);
     }
 }
