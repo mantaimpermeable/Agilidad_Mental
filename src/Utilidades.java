@@ -57,4 +57,11 @@ public class Utilidades {
         }
         return respuesta.charAt(0);
     }
+
+    public static int menu(Scanner teclado){
+        System.out.println("Bienvenido al programa de agilidad mental del goat, escoge el minijuego");
+        System.out.println("Juego de fechas (1)");
+        System.out.println("De momento eso es todo lo que tenemos ...");
+        return Utilidades.leerNumero(teclado, "Tu eleccion: ", 0, 1);
+        }
 }
