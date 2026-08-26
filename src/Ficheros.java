@@ -10,22 +10,18 @@ public class Ficheros {
     // private PrintWriter writer;
     
 
-    //ponemos estos objetos pero antes de meterlos en el constructor hay que inicializarlos con un FileReader y con un BufferdReader + filewriter
-    public Ficheros(){ //BufferedReader lector
-        // this.writer = escritor;
-        // this.reader = lector;
-    }
+    //ponemos estos objetos pero antes de meterlos en el constructor hay que inicializarlos con un FileReader y con un BufferdReader + filewrite
 
-    public void escribir(String informacion, String ruta) throws IOException{
+    public static void escribir(String informacion, String ruta) throws IOException{
         PrintWriter writer = new PrintWriter(ruta);
         writer.print(informacion); 
         }
 
     // String file = Files.readString(Path.of(ruta));
     //metodo para leer el archivo de intentos
-    public String[] leerIntentos(String ruta) throws IOException{ return Files.readString(Path.of(ruta)).split(Fechas.SEPARATOR); }
+    public static String[] leerIntentos(String ruta) throws IOException{ return Files.readString(Path.of(ruta)).split(Fechas.SEPARATOR); }
 
-    public String[] ultimasEstadisticas(String ruta, int numIntentos) throws IOException{
+    public static String[] ultimasEstadisticas(String ruta, int numIntentos) throws IOException{
         String[] fichero = leerIntentos(ruta);
         double segundos = 0.0;
         double exitos = 0.0;

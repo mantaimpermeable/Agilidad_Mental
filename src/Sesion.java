@@ -9,7 +9,6 @@ public class Sesion {
     
     private Scanner teclado;
     private Partidas partida;
-    private Ficheros fichero; 
     //ruta en la que se encuentra el proyecto
     private Path rutaActual = Paths.get("").toAbsolutePath();
     //ruta del directorio donde se crearan los ficheros de informacion
@@ -38,7 +37,7 @@ public class Sesion {
             respuesta = Utilidades.leerYNE(teclado, WELCOME_MSG);
             if(respuesta == 'Y'){
                 while(respuesta == 'Y'){
-                    this.partida.partidaFechas(this.teclado);
+                    this.partida.partidaFechas(this.teclado, intentosRuta, new Fechas());
                     respuesta = Utilidades.leerYNE(teclado, CHOICE_MSG);
                 }
                 //si dentro del ciclo del primer Y la respuesta es N entonces cambiamos a cualquier otro caracter para salir de cualquier if y volver a 
@@ -46,9 +45,9 @@ public class Sesion {
                 if(respuesta == 'N') respuesta = 'X';
             }
             if(respuesta == 'E'){
-                int max = fichero.leerIntentos(intentosRuta).length;
+                int max = Ficheros.leerIntentos(intentosRuta).length;
                 int numIntentos = Utilidades.leerNumero(teclado, ESTD_MSG, 1, max);
-                String[] estadisticas = fichero.ultimasEstadisticas(intentosRuta, numIntentos);
+                String[] estadisticas = Ficheros.ultimasEstadisticas(intentosRuta, numIntentos);
                 System.out.printf("Tu media de los ultimos %d intentos es de %f segundos y %f % de acierto", numIntentos, estadisticas[1], estadisticas[0]);
             }
             
