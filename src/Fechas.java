@@ -1,4 +1,6 @@
 package src;
+import java.util.Locale;
+
 public class Fechas {
     
     // Atributos privados de la clase
@@ -72,15 +74,17 @@ public class Fechas {
     }
     //booleano para comprobar si es correcto
 
-    public boolean isCorrect(String intento) { return (intento.toLowerCase() == this.DIAS_SEMANA[this.resultado]); }
+    public boolean isCorrect(String intento) {
+        return this.DIAS_SEMANA[this.resultado].equalsIgnoreCase(intento.trim());
+    }
 
     public String toRawString(boolean intento, double tiempo){
         StringBuilder raw = new StringBuilder();
-        raw.append(String.format("%s\n", makeDate())); //fecha random
-        raw.append(String.format("%s\n", this.resultado)); //dia correcto
-        raw.append(String.format("%b\n", intento)); // resultado del intento del usuario
-        raw.append(String.format("%f\n", tiempo)); //tiempo tardado en resolver
-        raw.append(String.format("%s\n", SEPARATOR)); //Separador para separar cada juego
+        raw.append(String.format(Locale.ROOT, "%s\n", makeDate())); //fecha random
+        raw.append(String.format(Locale.ROOT, "%s\n", this.resultado)); //dia correcto
+        raw.append(String.format(Locale.ROOT, "%b\n", intento)); // resultado del intento del usuario
+        raw.append(String.format(Locale.ROOT, "%f\n", tiempo)); //tiempo tardado en resolver
+        raw.append(String.format(Locale.ROOT, "%s\n", SEPARATOR)); //Separador para separar cada juego
 
         return raw.toString();
     }

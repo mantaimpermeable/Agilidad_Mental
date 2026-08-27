@@ -46,9 +46,13 @@ public class Sesion {
                 }
                 if(respuesta == 'E'){
                     int max = Ficheros.leerIntentos(intentosRuta).length;
-                    int numIntentos = Utilidades.leerNumero(teclado, ESTD_MSG, 1, max);
-                    String[] estadisticas = Ficheros.ultimasEstadisticas(intentosRuta, numIntentos);
-                    System.out.printf("Tu media de los ultimos %d intentos es de %f segundos y %f % de acierto", numIntentos, estadisticas[1], estadisticas[0]);
+                    if (max == 0) {
+                        System.out.println("Todavia no hay intentos registrados.");
+                    } else {
+                        int numIntentos = Utilidades.leerNumero(teclado, ESTD_MSG, 1, max);
+                        String[] estadisticas = Ficheros.ultimasEstadisticas(intentosRuta, numIntentos);
+                        System.out.printf("Tu media de los ultimos %d intentos es de %s segundos y %s%% de acierto%n", numIntentos, estadisticas[1], estadisticas[0]);
+                    }
                 }
 
             }

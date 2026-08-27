@@ -14,7 +14,7 @@ public class Partidas {
         Instant inicio = Instant.now();
         String intento = teclado.nextLine();
         Instant fin = Instant.now();
-        double segundos = Duration.between(fin, inicio).toSeconds();
+        double segundos = Duration.between(inicio, fin).toNanos() / 1_000_000_000.0;
 
         boolean exito = fecha.isCorrect(intento);
 
