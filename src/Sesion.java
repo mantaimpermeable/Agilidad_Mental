@@ -33,22 +33,24 @@ public class Sesion {
     public void juegoFechas(){
         try {
             char respuesta = 'X';
-            while(respuesta != 'N')
-            respuesta = Utilidades.leerYNE(teclado, WELCOME_MSG);
-            if(respuesta == 'Y'){
-                while(respuesta == 'Y'){
-                    this.partida.partidaFechas(this.teclado, intentosRuta, new Fechas());
-                    respuesta = Utilidades.leerYNE(teclado, CHOICE_MSG);
+            while(respuesta != 'N'){
+                respuesta = Utilidades.leerYNE(teclado, WELCOME_MSG);
+                if(respuesta == 'Y'){
+                    while(respuesta == 'Y'){
+                        this.partida.partidaFechas(this.teclado, intentosRuta, new Fechas());
+                        respuesta = Utilidades.leerYNE(teclado, CHOICE_MSG);
+                    }
+                    //si dentro del ciclo del primer Y la respuesta es N entonces cambiamos a cualquier otro caracter para salir de cualquier if y volver a 
+                    //la primera pregunta del menu sin que la respuesta == N y que nos saque del while principal
+                    if(respuesta == 'N') respuesta = 'X';
                 }
-                //si dentro del ciclo del primer Y la respuesta es N entonces cambiamos a cualquier otro caracter para salir de cualquier if y volver a 
-                //la primera pregunta del menu sin que la respuesta == N y que nos saque del while principal
-                if(respuesta == 'N') respuesta = 'X';
-            }
-            if(respuesta == 'E'){
-                int max = Ficheros.leerIntentos(intentosRuta).length;
-                int numIntentos = Utilidades.leerNumero(teclado, ESTD_MSG, 1, max);
-                String[] estadisticas = Ficheros.ultimasEstadisticas(intentosRuta, numIntentos);
-                System.out.printf("Tu media de los ultimos %d intentos es de %f segundos y %f % de acierto", numIntentos, estadisticas[1], estadisticas[0]);
+                if(respuesta == 'E'){
+                    int max = Ficheros.leerIntentos(intentosRuta).length;
+                    int numIntentos = Utilidades.leerNumero(teclado, ESTD_MSG, 1, max);
+                    String[] estadisticas = Ficheros.ultimasEstadisticas(intentosRuta, numIntentos);
+                    System.out.printf("Tu media de los ultimos %d intentos es de %f segundos y %f % de acierto", numIntentos, estadisticas[1], estadisticas[0]);
+                }
+
             }
             
         } catch (Exception e) {

@@ -12,13 +12,17 @@ public class Partidas {
         System.out.println("Adivina que dia de la semana fue el: " + fecha.makeDate());
         //preguntamos por una respuesta y medimo el tiempo
         Instant inicio = Instant.now();
-        String intento = teclado.next();
+        String intento = teclado.nextLine();
         Instant fin = Instant.now();
         double segundos = Duration.between(fin, inicio).toSeconds();
 
         boolean exito = fecha.isCorrect(intento);
-        if(exito) System.out.println("Es correcto");
-        else System.out.println("Error, el dia de la semana era un: " + fecha.getDiaSemana());
+
+        // if(exito) {System.out.println("Es correcto");}
+        // else System.out.println("Error, el dia de la semana era un: " + fecha.getDiaSemana());
+        String mensaje = exito ? "Es correcto" : String.format("Error, el dia de la semana era un: %s", fecha.getDiaSemana());
+        System.out.println(mensaje);
+        System.out.printf("Has tardado %f segundos\n", segundos);
 
         try {
             Ficheros.escribir(fecha.toRawString(exito, segundos), ruta);
