@@ -81,7 +81,7 @@ public class Fechas {
     public String toRawString(boolean intento, double tiempo){
         StringBuilder raw = new StringBuilder();
         raw.append(String.format(Locale.ROOT, "%s\n", makeDate())); //fecha random
-        raw.append(String.format(Locale.ROOT, "%s\n", this.resultado)); //dia correcto
+        raw.append(String.format(Locale.ROOT, "%s\n", getDiaSemana())); //dia correcto
         raw.append(String.format(Locale.ROOT, "%b\n", intento)); // resultado del intento del usuario
         raw.append(String.format(Locale.ROOT, "%f\n", tiempo)); //tiempo tardado en resolver
         raw.append(String.format(Locale.ROOT, "%s\n", SEPARATOR)); //Separador para separar cada juego
