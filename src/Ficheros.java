@@ -51,4 +51,21 @@ public class Ficheros {
 
         return  new String[]{String.valueOf(exitos), String.valueOf(segundos)};
     }
+
+    //devuelve el array con la mejor racha y el mejorTiempo en orden
+    //se le pasa la ruta de el archivo de estadisticas y los valores actuales de la sesion
+    public static String[] leerEstadisticas(String ruta, int rachaActual, double mejorTiempoActual) throws IOException{
+        String estadisticas = Files.readString(Path.of(ruta)).trim();
+        int rachaPosible = 0;
+        Double mejorTiempoPosible = 0.0;
+        try (BufferedReader reader = new BufferedReader(new java.io.StringReader(estadisticas))) {
+            rachaPosible = Integer.parseInt(reader.readLine());
+            mejorTiempoPosible = Double.parseDouble(reader.readLine());
+        }
+        
+        String mejorRacha = rachaPosible > rachaActual ? String.valueOf(rachaPosible) : String.valueOf(rachaActual);
+        String mejorTiempo = mejorTiempoPosible > mejorTiempoActual ? String.valueOf(mejorTiempoPosible) : String.valueOf(mejorTiempoActual);
+
+        return new String[]{mejorRacha, mejorTiempo};
+    }
 }
