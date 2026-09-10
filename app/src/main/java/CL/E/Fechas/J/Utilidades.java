@@ -1,4 +1,5 @@
-package src;
+package CL.E.Fechas.J;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 

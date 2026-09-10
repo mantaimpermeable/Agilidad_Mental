@@ -1,4 +1,5 @@
-package src;
+package CL.E.Fechas.J;
+
 import java.util.Scanner;
 import java.nio.file.Path;
 import java.nio.file.Paths;

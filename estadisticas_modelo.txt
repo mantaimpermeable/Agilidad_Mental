@@ -1,0 +1,2 @@
+racha: n
+mejor tiempo: 00,00

@@ -1,4 +1,5 @@
-package src;
+package CL.E.Fechas.J;
+
 import java.io.IOException;
 import java.util.Scanner;
 import java.time.Instant;
