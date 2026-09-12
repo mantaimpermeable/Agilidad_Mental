@@ -65,4 +65,14 @@ public class Utilidades {
         System.out.println("De momento eso es todo lo que tenemos ...");
         return Utilidades.leerNumero(teclado, "Tu eleccion: ", 0, 1);
         }
+    
+    public static String obtenerDiaDiferente(String dia) {
+        String[] dias = {"domingo", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado"};
+        for (String posible : dias) {
+            if (!posible.equalsIgnoreCase(dia)) {
+                return posible;
+            }
+        }
+        return "lunes";
+    }
 }

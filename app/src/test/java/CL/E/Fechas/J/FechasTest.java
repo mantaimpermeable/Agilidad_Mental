@@ -8,7 +8,7 @@ public class FechasTest {
      @Test void isCorrectTest() {
         fecha = new Fechas();
         String correcto = fecha.getDiaSemana();
-        String incorrecto = "lunes" == fecha.getDiaSemana() ? "martes" : "lunes";
+        String incorrecto = Utilidades.obtenerDiaDiferente(fecha.getDiaSemana());
 
         assertTrue(fecha.isCorrect(correcto));
         assertFalse(fecha.isCorrect(incorrecto));
