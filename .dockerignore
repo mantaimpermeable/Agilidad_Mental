@@ -1,0 +1,13 @@
+.git
+.gradle
+build
+app/bin
+app/build
+.vscode
+storage
+*.iml
+Dockerfile
+README.md
+TODO.md
+estadisticas_modelo.txt
+intentos_modelo.txt
