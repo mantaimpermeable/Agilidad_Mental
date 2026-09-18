@@ -1,8 +1,0 @@
-version: 5.1.0
-services:
-  a.mental:v01:
-  build:
-    context: .
-    dockerfile: Dockerfile
-  volumes:
-    "-v fechas-datos:/app/storage"
