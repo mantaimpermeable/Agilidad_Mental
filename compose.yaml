@@ -1,0 +1,8 @@
+version: 5.1.0
+services:
+  amental:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./fechas-datos:/app/storage

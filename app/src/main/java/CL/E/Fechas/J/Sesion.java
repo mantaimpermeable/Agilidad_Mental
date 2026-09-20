@@ -17,7 +17,7 @@ public class Sesion {
     private String intentosRuta = rutaActual + "/storage/intentos.txt";
 
     private final String WELCOME_MSG = "Bienvenido al juego de las fechas, ahora tendras que calcular el dia de la semana de una fecha. Empezar(Y)  Salir(N)  Estadisticas(E)";
-    private final String CHOICE_MSG = "Ha terminado el juegos. Jugar de nuevo(Y)  Salir al menu(N)  Estadisticas(E)";
+    private final String CHOICE_MSG = "Ha terminado el juegos. Jugar de nuevo(Y)  Salir al menu(N)  Estadisticas(E)  Comprobar una fecha(C)";
     private final String ESTD_MSG = "Inserta el numero de intentos del que quieres ver estadisticas";
   
 
@@ -45,6 +45,7 @@ public class Sesion {
                     //la primera pregunta del menu sin que la respuesta == N y que nos saque del while principal
                     if(respuesta == 'N') respuesta = 'X';
                 }
+
                 if(respuesta == 'E'){
                     int max = Ficheros.leerIntentos(intentosRuta).length;
                     if (max == 0) {
@@ -55,6 +56,16 @@ public class Sesion {
                         System.out.printf("Tu media de los ultimos %d intentos es de %s segundos y %s%% de acierto%n", numIntentos, estadisticas[1], estadisticas[0]);
                     }
                 }
+
+                if(respuesta == 'C'){
+                    int mes = Utilidades.leerNumero(teclado, "Inserta el mes", 1, 12);
+                    int año = Utilidades.leerNumero(teclado, "Inserta el año", 1, 2100);
+                    int dia = Utilidades.dayMax(mes);
+
+                    System.out.println( Utilidades.getCalculated(dia,mes ,año));
+                }
+
+
 
             }
             

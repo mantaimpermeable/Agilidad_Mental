@@ -7,11 +7,14 @@ public class Utilidades {
 
     private static final String ERROR_MSG = "Por favor, introduce un número válido.";
     private static final String NUMBER_MSG = "El número debe estar entre [%d] y [%d].";
+    private static final String[] DIAS_SEMANA = {"domingo", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado"}; //Sin mayusculas o tildes
 
     public static String leerString(Scanner teclado, String mensaje){
         System.out.println(mensaje);
         return teclado.nextLine();
     }
+
+    public static String[] getDiasSemana() { return DIAS_SEMANA; }
 
     public static int leerNumero(Scanner teclado, String mensaje, int minimo, int maximo) {
         int output = minimo - 1; boolean correct = false;
@@ -74,5 +77,43 @@ public class Utilidades {
             }
         }
         return "lunes";
+    }
+
+    public static String leerDia(Scanner teclado, String[] dias, String err_mensaje) { 
+        String intento = teclado.next();
+        boolean bien = false;
+        do{
+            for (int i = 0; i < dias.length; i++) {
+                if (intento.equals(dias[i])) bien = true;
+            }
+
+            if(!bien) System.out.println(err_mensaje);
+            intento = teclado.nextLine();
+        }while(!bien);
+
+        return intento;
+    }
+
+      public static String getCalculated(int dia, int mes, int año) {
+         //guardamos los codigos correspondientes a cada mes
+        int [] codMes = {0,3,2,5,0,3,5,1,4,6,2,4};
+
+        //lo llamamos year para no confundir porque este año puede cambiar
+        
+        if(mes < 3) año -= 1;
+
+        //algoritmo de sakamoto
+        return DIAS_SEMANA[(año + año/4 - año/100 + año/400 + codMes[mes -1] + dia) % 7];
+        
+    }
+
+    public static int dayMax(int mes) {
+        
+        return switch(mes){
+            case 1,3,5,7,8,10,12  ->  31;
+            case 4, 6, 9, 11  ->  30;
+            case 2 ->  28;
+            default -> -1;
+        };
     }
 }
